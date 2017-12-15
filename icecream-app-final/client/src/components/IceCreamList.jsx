@@ -9,7 +9,7 @@ const IceCreamList = (props) => {
       {props.allIceCreams.map(icecream => {
         return (props.currentlyEditing == icecream.id) 
           ? <IceCreamForm key={icecream.id} icecream={icecream} iceCreamSubmit={props.iceCreamSubmit} />
-          : <IceCream key={icecream.id} icecream={icecream} setEditing={props.setEditing} />
+          : <IceCream key={icecream.id} icecream={icecream} setEditing={props.setEditing} deleteIceCream={props.deleteIceCream} />
       })}
     </div>
   );

@@ -12,6 +12,7 @@ const IceCream = (props) => {
       </div>
       <p className="rating">Rating: {props.icecream.rating}</p>
       <span className="clickme" onClick={() => props.setEditing(props.icecream.id)}>Edit</span>
+      <span className="clickme" onClick={() => props.deleteIceCream(props.icecream.id)}>Delete</span>
     </div>
   )
 }

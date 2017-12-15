@@ -17,6 +17,7 @@ class App extends Component {
     this.iceCreamSubmit = this.iceCreamSubmit.bind(this);
     this.showAddForm = this.showAddForm.bind(this);
     this.setEditing = this.setEditing.bind(this);
+    this.deleteIceCream = this.deleteIceCream.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +51,15 @@ class App extends Component {
       });
   }
 
+  deleteIceCream(id) {
+    fetch(`/api/icecream/${id}`, {
+      method: 'DELETE'
+    }).then(res => res.json())
+    .then(res => {
+      this.getAllIceCreams();
+    });
+  }
+
   showAddForm() {
     this.setState({
       shouldShowAddForm: true,
@@ -60,7 +70,7 @@ class App extends Component {
     this.setState({
       currentlyEditing: id,
     });
-  };
+  }
 
   render() {
     return (
@@ -74,7 +84,7 @@ class App extends Component {
         </div>
         <div className="container">
           {(this.state.dataLoaded) 
-            ? <IceCreamList allIceCreams={this.state.iceCreamData} currentlyEditing={this.state.currentlyEditing} setEditing={this.setEditing} iceCreamSubmit={this.iceCreamSubmit} /> 
+            ? <IceCreamList allIceCreams={this.state.iceCreamData} currentlyEditing={this.state.currentlyEditing} setEditing={this.setEditing} iceCreamSubmit={this.iceCreamSubmit} deleteIceCream={this.deleteIceCream} /> 
             : <p>Loading...</p>}
         </div>
         <Footer />
