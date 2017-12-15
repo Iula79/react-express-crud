@@ -210,7 +210,7 @@ footer {
   font-family: 'inconsolata', monospace;
 }
 
-.ic-inlist a {
+.ic-inlist a, .form-holder button, .clickme {
   padding: 15px 30px;
   margin: 10px auto;
   background-color: black;
@@ -218,9 +218,10 @@ footer {
   text-decoration: none;
   font-family: 'inconsolata', monospace;
   transition: 0.2s all;
+  cursor: pointer;
 }
 
-.ic-inlist a:hover {
+.ic-inlist a:hover, .form-holder button:hover, .clickme:hover {
   color: #87DCFA;
 }
 
@@ -302,6 +303,37 @@ footer {
   display: flex;
   flex-direction: column;
   border: 1px solid #000;
+}
+
+.form-subcontainer {
+  display: flex;
+}
+
+.icecream-list .form-subcontainer {
+  flex-direction: column;
+}
+
+.icecream-list .add {
+  max-width: 30%;
+}
+
+.icecream-list form {
+  width: auto;
+  font-size: 0.8em;
+}
+
+
+
+.form-subcontainer input[type=text], 
+.form-subcontainer input[type=number] {
+  margin: 10px;
+}
+
+.form-holder {
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 form input[type=text], form input[type=number], form input[type=email], form input[type=password] {
